@@ -1,4 +1,5 @@
-# Crypto Pump and Dump Predictor
+# Crypto Pump and Dump Predictor for Stat 198 Final
+
 
 ## Setup
 1) Install Python@3.8 and symlink it into your path and as python3 (or use an alias)
