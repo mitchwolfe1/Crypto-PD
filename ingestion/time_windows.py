@@ -131,7 +131,9 @@ def analyze_symbol(f_path, v_thresh, p_thresh, win_size=24, c_size='1h', plot=Fa
     final_combined = df[final_combined_mask]
     final_combined_rm = rm_same_day_pumps(final_combined)
 
-    print("Detected P&Ds:\n" + final_combined_rm)
+    print("Detected P&Ds:")
+    print(final_combined_rm)
+    
     num_final_combined = get_num_rows(final_combined_rm)
 
     row_entry = {
@@ -146,7 +148,7 @@ def analyze_symbol(f_path, v_thresh, p_thresh, win_size=24, c_size='1h', plot=Fa
 
 
 
-print(analyze_symbol('data/binance/HARD-BTC.csv', 4, 1.05, win_size=12, c_size='1h', plot=False))
+print(analyze_symbol('data/binance/PIVX-BTC.csv', 4, 1.05, win_size=12, c_size='1h', plot=False))
 #print(analyze_symbol('../Research/Source1/data/binance/CDT-BTC.csv', 3, 1.05, win_size=12, c_size='1h', plot=False))
 
 
