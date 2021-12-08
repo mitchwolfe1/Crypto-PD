@@ -146,6 +146,11 @@ def analyze_symbol(f_path, v_thresh, p_thresh, win_size=24, c_size='1h', plot=Fa
     return row_entry
 
 
+"""
+lines = []
+with open("historical_pumps.txt", "w+") as f:
+    lines = f.readlines()
+"""
 
 
 print(analyze_symbol('data/binance/PIVX-BTC.csv', 4, 1.05, win_size=12, c_size='1h', plot=False))

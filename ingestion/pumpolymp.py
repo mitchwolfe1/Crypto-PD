@@ -17,6 +17,8 @@ data = data.decode().replace("\\u", "")
 json_data = json.loads(data)
 
 
+text_dump = ""
+
 count = 0
 for obj in json_data:
 	exchange = obj["exchange"]
@@ -29,9 +31,13 @@ for obj in json_data:
 		pump_time = datetime.datetime.strptime(obj["signalTime"].replace("T", " ").replace("Z", ""), '%Y-%m-%d %H:%M:%S.%f')
 
 	# filter for pumps that are only on the hour
-	seconds = ["00", "01", "02", "03", "59", "58", "57"]
+	seconds = ["00", "01", "02", "03", "59", "58", "57", "30"]
 	if pump_time.strftime("%M") in seconds:
 		if exchange == "Binance":
-			print(exchange, coin, pump_time)
+			print(coin, pump_time)
+			text_dump += coin + "," + str(pump_time) + "\n"
 			count+=1
 print(count)
+
+with open("historical_pumps.txt", "w+") as f:
+	f.write(text_dump)
